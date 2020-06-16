@@ -1,0 +1,16 @@
+.bg {
+  padding: 50px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: "Sriracha", cursive;
+}
+
+.startBtn {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  font-family: "Sriracha", cursive;
+  font-size: 20px;
+}

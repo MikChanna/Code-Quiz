@@ -1,0 +1,7 @@
+-Develop at least 10 questions
+    -multiple choice answers
+    -know which one is the right answers
+-Has timer (start @ 2 minutes)
+    -set timer
+    -decrement by 1 second
+    -when timer = 0, the questions stop
