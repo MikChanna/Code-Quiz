@@ -85,11 +85,22 @@ $(document).ready(function () {
 
     for (i = 0; i < twoAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aTwo-button answer answer-btn-color");
       answersBtn.attr("data-answer", twoAnswers[i]);
       answersBtn.text(twoAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aTwo-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qThree();
+        alert("time to go!");
+      }
+    });
   }
 
   function qThree() {
@@ -105,11 +116,22 @@ $(document).ready(function () {
 
     for (i = 0; i < threeAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aThree-button answer answer-btn-color");
       answersBtn.attr("data-answer", threeAnswers[i]);
       answersBtn.text(threeAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aThree-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qFour();
+        alert("time to go!");
+      }
+    });
   }
 
   function qFour() {
@@ -122,11 +144,22 @@ $(document).ready(function () {
 
     for (i = 0; i < fourAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aFour-button answer answer-btn-color");
       answersBtn.attr("data-answer", fourAnswers[i]);
       answersBtn.text(fourAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aFour-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qFive();
+        alert("time to go!");
+      }
+    });
   }
 
   function qFive() {
@@ -142,11 +175,22 @@ $(document).ready(function () {
 
     for (i = 0; i < fiveAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aFive-button answer answer-btn-color");
       answersBtn.attr("data-answer", fiveAnswers[i]);
       answersBtn.text(fiveAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aFive-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qSix();
+        alert("time to go!");
+      }
+    });
   }
 
   function qSix() {
@@ -164,11 +208,22 @@ $(document).ready(function () {
 
     for (i = 0; i < sixAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aSix-button answer answer-btn-color");
       answersBtn.attr("data-answer", sixAnswers[i]);
       answersBtn.text(sixAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aSix-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qSeven();
+        alert("time to go!");
+      }
+    });
   }
 
   function qSeven() {
@@ -179,11 +234,22 @@ $(document).ready(function () {
 
     for (i = 0; i < sevenAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aSeven-button answer answer-btn-color");
       answersBtn.attr("data-answer", sevenAnswers[i]);
       answersBtn.text(sevenAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aSeven-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qEight();
+        alert("time to go!");
+      }
+    });
   }
 
   function qEight() {
@@ -196,11 +262,22 @@ $(document).ready(function () {
 
     for (i = 0; i < eightAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aEight-button answer answer-btn-color");
       answersBtn.attr("data-answer", eightAnswers[i]);
       answersBtn.text(eightAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aEight-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qNine();
+        alert("time to go!");
+      }
+    });
   }
 
   function qNine() {
@@ -213,11 +290,22 @@ $(document).ready(function () {
 
     for (i = 0; i < nineAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aNine-button answer answer-btn-color");
       answersBtn.attr("data-answer", nineAnswers[i]);
       answersBtn.text(nineAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aNine-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qTen();
+        alert("time to go!");
+      }
+    });
   }
 
   function qTen() {
@@ -230,22 +318,19 @@ $(document).ready(function () {
 
     for (i = 0; i < tenAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
+      answersBtn.addClass("aTen-button answer answer-btn-color");
       answersBtn.attr("data-answer", tenAnswers[i]);
       answersBtn.text(tenAnswers[i]);
       ansArea.append(answersBtn);
     }
+    $(".aTen-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        pauseTime();
+      }
+    });
   }
-
-  // $(".aOne-button").click(function () {
-  //   if ("data-answer" === 1) {
-  //     qTwo();
-  //     alert("you got the right answer");
-  //   } else {
-  //     seconds - 10;
-  //     renderTime();
-  //     qTwo();
-  //     alert("time to go!");
-  //   }
-  // });
 });
