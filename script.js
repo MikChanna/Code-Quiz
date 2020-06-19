@@ -27,15 +27,21 @@ $(document).ready(function () {
 
   function pauseTimer() {
     clearInterval(interval);
-    renderTime();
   }
 
-  startButton.on("click", function () {
+  startButton.click(function () {
     startTimer();
     qOne();
   });
 
+  function clearText() {
+    startButton.replaceWith("");
+    codeText.empty();
+    ansArea.empty();
+  }
+
   function qOne() {
+    clearText();
     codeHeader.text("What is code?");
 
     var oneAnswers = [
@@ -47,17 +53,27 @@ $(document).ready(function () {
 
     for (i = 0; i < oneAnswers.length; i++) {
       var answersBtn = $("<button>");
-      answersBtn.addClass("answer-button answer answer-btn-color");
-      answersBtn.attr("data-answer", oneAnswers[i]);
+      answersBtn.addClass("aOne-button answer answer-btn-color");
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(oneAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
-    console.log(oneAnswers);
+
+    $(".aOne-button").click(function () {
+      if ("data-answer" === 1) {
+        qTwo();
+        alert("you got the right answer");
+      } else {
+        seconds - 10;
+        renderTime();
+        qTwo();
+        alert("time to go!");
+      }
+    });
   }
 
   function qTwo() {
+    clearText();
     codeHeader.text("Which element creates the smallest heading?");
 
     var twoAnswers = [
@@ -72,13 +88,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", twoAnswers[i]);
       answersBtn.text(twoAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qThree() {
+    clearText();
     codeHeader.text("What does the computer language HTML do?");
 
     var threeAnswers = [
@@ -93,13 +108,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", threeAnswers[i]);
       answersBtn.text(threeAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qFour() {
+    clearText();
     codeHeader.text(
       "What is the action of doing something over and over again, repeating code?"
     );
@@ -111,13 +125,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", fourAnswers[i]);
       answersBtn.text(fourAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qFive() {
+    clearText();
     codeHeader.text("What is the following code doing: totalMarks = 8;");
 
     var fiveAnswers = [
@@ -132,13 +145,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", fiveAnswers[i]);
       answersBtn.text(fiveAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qSix() {
+    clearText();
     codeHeader.text(
       "What is a CSS property and value pair like, color: crimson, called?"
     );
@@ -155,13 +167,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", sixAnswers[i]);
       answersBtn.text(sixAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qSeven() {
+    clearText();
     codeHeader.text("How do you save information in your local browser?");
 
     var sevenAnswers = ["console.log", "localStorage.", "window", "array"];
@@ -171,13 +182,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", sevenAnswers[i]);
       answersBtn.text(sevenAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qEight() {
+    clearText();
     codeHeader.text(
       "In javascript, what element is used to store and manipulate text usually in multiples?"
     );
@@ -189,13 +199,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", eightAnswers[i]);
       answersBtn.text(eightAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qNine() {
+    clearText();
     codeHeader.text(
       "What is the element called that is used to describe the set of variables, objects, and functions you explicitly have access to?"
     );
@@ -207,13 +216,12 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", nineAnswers[i]);
       answersBtn.text(nineAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
 
   function qTen() {
+    clearText();
     codeHeader.text(
       "What is the Javascript element that represents either TRUE or FALSE values?"
     );
@@ -225,9 +233,19 @@ $(document).ready(function () {
       answersBtn.addClass("answer-button answer answer-btn-color");
       answersBtn.attr("data-answer", tenAnswers[i]);
       answersBtn.text(tenAnswers[i]);
-      startButton.replaceWith("");
-      codeText.empty();
       ansArea.append(answersBtn);
     }
   }
+
+  // $(".aOne-button").click(function () {
+  //   if ("data-answer" === 1) {
+  //     qTwo();
+  //     alert("you got the right answer");
+  //   } else {
+  //     seconds - 10;
+  //     renderTime();
+  //     qTwo();
+  //     alert("time to go!");
+  //   }
+  // });
 });
