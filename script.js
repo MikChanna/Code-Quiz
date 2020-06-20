@@ -27,6 +27,7 @@ $(document).ready(function () {
 
   function pauseTimer() {
     clearInterval(interval);
+    renderTime();
   }
 
   startButton.click(function () {
@@ -38,6 +39,11 @@ $(document).ready(function () {
     startButton.replaceWith("");
     codeText.empty();
     ansArea.empty();
+  }
+
+  function decTime() {
+    seconds -= 10;
+    renderTime();
   }
 
   function qOne() {
@@ -64,8 +70,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qTwo();
         alert("time to go!");
       }
@@ -95,8 +100,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qThree();
         alert("time to go!");
       }
@@ -126,8 +130,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qFour();
         alert("time to go!");
       }
@@ -154,8 +157,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qFive();
         alert("time to go!");
       }
@@ -185,8 +187,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qSix();
         alert("time to go!");
       }
@@ -218,8 +219,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qSeven();
         alert("time to go!");
       }
@@ -244,8 +244,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qEight();
         alert("time to go!");
       }
@@ -272,8 +271,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qNine();
         alert("time to go!");
       }
@@ -300,8 +298,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
-        renderTime();
+        decTime();
         qTen();
         alert("time to go!");
       }
@@ -328,7 +325,7 @@ $(document).ready(function () {
         qTwo();
         alert("you got the right answer");
       } else {
-        seconds - 10;
+        decTime();
         pauseTime();
       }
     });
