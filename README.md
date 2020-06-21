@@ -6,4 +6,7 @@ Disclaimer: Time conintues to countdown even when all questions have been answer
 
 Here is a screenshot of the start up screen below.
 
+![Code-quiz](https://user-images.githubusercontent.com/61893686/85214333-4aef6e80-b337-11ea-9084-c28fb8d38039.png)
+
+
 Copyright 2020 Channa Mik Carlson
