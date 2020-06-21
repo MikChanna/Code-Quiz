@@ -7,6 +7,7 @@ $(document).ready(function () {
   var startButton = $(".startBtn");
   var ansArea = $(".answerArea");
   var scores = $(".scores");
+  var highscores = [];
 
   var seconds = 120;
   var interval = 0;
@@ -52,7 +53,7 @@ $(document).ready(function () {
     renderTime();
   }
 
-  // function that prompts user to add their initials
+  // function that prompts user to add their initials and saves it to the local storage
   function addInitials() {
     clearText();
     codeHeader.empty();
@@ -72,10 +73,10 @@ $(document).ready(function () {
       }
 
       localStorage.setItem(scoreText, seconds);
+      highscores.push(scoreText);
 
-      var lastScore = localStorage.getItem(scoreText, seconds);
-      scores.append(lastScore);
-      console.log(lastScore);
+      var name = localStorage.getItem(scoreText, seconds);
+      scores.prepend("Your Score is: " + name);
     });
   }
 
