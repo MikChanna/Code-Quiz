@@ -1,13 +1,17 @@
+// document ready for entire code
 $(document).ready(function () {
+  // declaring variables
   var timer = $(".timer");
   var codeHeader = $(".codeHeader");
   var codeText = $(".codeText");
   var startButton = $(".startBtn");
   var ansArea = $(".answerArea");
+  var scores = $(".scores");
 
   var seconds = 120;
-  var interval;
+  var interval = 0;
 
+  // function starts the timer at 120 seconds
   function startTimer() {
     if (seconds === 120) {
       interval = setInterval(function () {
@@ -16,36 +20,66 @@ $(document).ready(function () {
         renderTime();
       }, 1000);
     }
-    if (seconds === 0) {
-      pauseTimer();
-    }
   }
 
+  // this function will make the seconds appear on the page
   function renderTime() {
     timer.text("Timer: " + seconds);
   }
 
+  // this function will clear interval and pause the time
   function pauseTimer() {
     clearInterval(interval);
     renderTime();
   }
 
+  // when the start button is clicked the timer will start and the first question will appear
   startButton.click(function () {
     startTimer();
     qOne();
   });
 
+  // this function simply clears out the text area for a new question and answer to appear
   function clearText() {
     startButton.replaceWith("");
     codeText.empty();
     ansArea.empty();
   }
 
+  // this function decrements the time by 10 seconds
   function decTime() {
     seconds -= 10;
     renderTime();
   }
 
+  // function that prompts user to add their initials
+  function addInitials() {
+    clearText();
+    codeHeader.empty();
+
+    var initials = $(
+      "<form><input class = 'addedInput' placeholder = 'your initials'></form><button class = 'submitBtn'>Submit</button>"
+    );
+    scores.append(initials);
+
+    $(".submitBtn").click(function (event) {
+      event.preventDefault();
+
+      var scoreText = $.trim($(".addedInput").val());
+
+      if (scoreText === "") {
+        return;
+      }
+
+      localStorage.setItem(scoreText, seconds);
+
+      var lastScore = localStorage.getItem(scoreText, seconds);
+      scores.append(lastScore);
+      console.log(lastScore);
+    });
+  }
+
+  // the question functions below will clear the text and show a new set of question and answers.  If the wrong answer is chosen the time will decrement by 10.
   function qOne() {
     clearText();
     codeHeader.text("What is code?");
@@ -66,7 +100,8 @@ $(document).ready(function () {
     }
 
     $(".aOne-button").click(function () {
-      if ("data-answer" === 1) {
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
         qTwo();
         alert("you got the right answer");
       } else {
@@ -91,13 +126,14 @@ $(document).ready(function () {
     for (i = 0; i < twoAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aTwo-button answer answer-btn-color");
-      answersBtn.attr("data-answer", twoAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(twoAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aTwo-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 3) {
+        qThree();
         alert("you got the right answer");
       } else {
         decTime();
@@ -121,13 +157,14 @@ $(document).ready(function () {
     for (i = 0; i < threeAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aThree-button answer answer-btn-color");
-      answersBtn.attr("data-answer", threeAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(threeAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aThree-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
+        qFour();
         alert("you got the right answer");
       } else {
         decTime();
@@ -148,13 +185,14 @@ $(document).ready(function () {
     for (i = 0; i < fourAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aFour-button answer answer-btn-color");
-      answersBtn.attr("data-answer", fourAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(fourAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aFour-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
+        qFive();
         alert("you got the right answer");
       } else {
         decTime();
@@ -178,13 +216,14 @@ $(document).ready(function () {
     for (i = 0; i < fiveAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aFive-button answer answer-btn-color");
-      answersBtn.attr("data-answer", fiveAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(fiveAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aFive-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
+        qSix();
         alert("you got the right answer");
       } else {
         decTime();
@@ -210,13 +249,14 @@ $(document).ready(function () {
     for (i = 0; i < sixAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aSix-button answer answer-btn-color");
-      answersBtn.attr("data-answer", sixAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(sixAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aSix-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
+        qSeven();
         alert("you got the right answer");
       } else {
         decTime();
@@ -235,13 +275,14 @@ $(document).ready(function () {
     for (i = 0; i < sevenAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aSeven-button answer answer-btn-color");
-      answersBtn.attr("data-answer", sevenAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(sevenAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aSeven-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
+        qEight();
         alert("you got the right answer");
       } else {
         decTime();
@@ -262,13 +303,14 @@ $(document).ready(function () {
     for (i = 0; i < eightAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aEight-button answer answer-btn-color");
-      answersBtn.attr("data-answer", eightAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(eightAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aEight-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 1) {
+        qNine();
         alert("you got the right answer");
       } else {
         decTime();
@@ -289,13 +331,14 @@ $(document).ready(function () {
     for (i = 0; i < nineAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aNine-button answer answer-btn-color");
-      answersBtn.attr("data-answer", nineAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(nineAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aNine-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 0) {
+        qTen();
         alert("you got the right answer");
       } else {
         decTime();
@@ -316,17 +359,20 @@ $(document).ready(function () {
     for (i = 0; i < tenAnswers.length; i++) {
       var answersBtn = $("<button>");
       answersBtn.addClass("aTen-button answer answer-btn-color");
-      answersBtn.attr("data-answer", tenAnswers[i]);
+      answersBtn.attr("data-answer", [i]);
       answersBtn.text(tenAnswers[i]);
       ansArea.append(answersBtn);
     }
     $(".aTen-button").click(function () {
-      if ("data-answer" === 1) {
-        qTwo();
+      var correctAnswer = $(this).data("answer");
+      if (correctAnswer === 0) {
         alert("you got the right answer");
+        pauseTimer();
+        addInitials();
       } else {
         decTime();
-        pauseTime();
+        pauseTimer();
+        addInitials();
       }
     });
   }

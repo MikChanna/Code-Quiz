@@ -33,3 +33,10 @@
   background-color: white;
   color: black;
 }
+
+.submitBtn {
+  width: 60px;
+  height: 20px;
+  background-color: blue;
+  color: white;
+}
